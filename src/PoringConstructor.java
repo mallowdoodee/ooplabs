@@ -29,7 +29,7 @@ public class PoringConstructor implements ActionListener{
         if (e.getSource().equals(bt)){
             poring.add(new Poring(poring.size() + 1));//
         }
-    }
+    }   
     
     public static void main(String[] args) {
         new PoringConstructor();
