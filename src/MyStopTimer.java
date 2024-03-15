@@ -1,14 +1,12 @@
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.*;
 
-public class MyStopTimer extends JLabel implements Runnable, ActionListener, MouseListener {
+public class MyStopTimer extends JLabel implements Runnable, MouseListener {
     private int sec;
-    private JButton bt;
-    private boolean isRunning;
+    private boolean pause;
 
     private synchronized void checkPaused(){
-        while (isRunning){
+        while (pause){
             try{
                 wait();
             }
@@ -19,28 +17,19 @@ public class MyStopTimer extends JLabel implements Runnable, ActionListener, Mou
     }
 
     public void pauseThread(){
-        isRunning = true;
+        pause = true;
     }
 
     public synchronized void resumeThread(){
-        isRunning = false;
+        pause = false;
         notify();
     }
 
     public MyStopTimer() {
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         sec = 0;
-        isRunning = false; // Initially, the timer is not running
+        pause = false; // Initially, the timer is not running
 
         setFont(new java.awt.Font("Cordia New", 1, 100));
-
-        bt = new JButton("Stop");
-        bt.addActionListener(this);
-        bt.setAlignmentX(Component.CENTER_ALIGNMENT);
-        bt.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        
-        add(Box.createVerticalGlue());
-        add(bt);
         
         addMouseListener(this);
     }
@@ -63,15 +52,12 @@ public class MyStopTimer extends JLabel implements Runnable, ActionListener, Mou
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == bt) {
-            pauseThread();
-        }
-    }
-
-    @Override
     public void mouseClicked(MouseEvent e) {
-        resumeThread();
+        if (pause) {
+            resumeThread(); // If paused, resume the timer
+        } else {
+            pauseThread(); // If running, pause the timer
+        }
     }
 
     @Override

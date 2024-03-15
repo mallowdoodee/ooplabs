@@ -2,8 +2,8 @@ import javax.swing.JFrame;
 public class MyFrame {
     public static void main(String[] args) {
         JFrame fr = new JFrame();
-        //MyClock clock = new MyClock();
-        //MyTimer clock = new MyTimer();
+        //MyClock clock = new MyClock();;
+//        MyTimer clock = new MyTimer();
         MyStopTimer clock = new MyStopTimer();
         Thread t = new Thread(clock);
         t.start();

@@ -17,7 +17,7 @@ public class Poring implements MouseListener{
             im = new ImageIcon(imageURL);
         }
 
-        lb = new JLabel(String.valueOf(i) ,im, JLabel.CENTER);
+        lb = new JLabel(String.valueOf(i) ,im , JLabel.CENTER);
         lb.addMouseListener(this);
         
         fr.add(lb);
