@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.io.*;
 
+
 public class ChatDemo implements ActionListener, WindowListener{
     private JFrame fr;
     private JTextArea ta;
@@ -46,6 +47,7 @@ public class ChatDemo implements ActionListener, WindowListener{
         fr.add(pn, BorderLayout.SOUTH);
 
         fr.pack();
+        fr.setLocationRelativeTo(null);
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fr.setVisible(true);
         
@@ -58,7 +60,7 @@ public class ChatDemo implements ActionListener, WindowListener{
         JButton gs = (JButton) ae.getSource();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String chat = "";
-        if (gs.equals(bt1)){
+        if (gs.equals(bt1) && !(tf.getText().equals(""))){
             chat = tf.getText();
             ta.append(dtf.format(LocalDateTime.now()) + ": " + chat + "\n");
             tf.setText("");
