@@ -13,6 +13,7 @@ public class ChatDemo implements ActionListener, WindowListener{
     private JButton bt1, bt2;
     private JPanel pn;
     private File file;
+    private JScrollPane jScrollPane;
     public ChatDemo(){
         fr = new JFrame("แชท");
         Font font = new Font("FC Iconic", Font.PLAIN, 16);
@@ -42,7 +43,8 @@ public class ChatDemo implements ActionListener, WindowListener{
         pn.add(bt1);
         pn.add(bt2);
         
-        fr.add(ta, BorderLayout.NORTH);
+        jScrollPane = new JScrollPane(ta);
+        fr.add(jScrollPane, BorderLayout.NORTH);
         fr.add(tf, BorderLayout.CENTER);
         fr.add(pn, BorderLayout.SOUTH);
 
