@@ -53,7 +53,7 @@ public class TextEditor implements ActionListener{
         
         fr.add(scrollPane);
         fr.add(mb, BorderLayout.NORTH);
-        fr.setSize(500, 300);
+        fr.setSize(500, 400);
         fr.setLocationRelativeTo(null);
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fr.setVisible(true);
