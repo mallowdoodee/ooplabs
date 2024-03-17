@@ -90,7 +90,7 @@ public class TextEditor implements ActionListener{
                 e.printStackTrace();
             }
         } else {
-            fr.dispose();
+            System.exit(0);
         }
     }
     
